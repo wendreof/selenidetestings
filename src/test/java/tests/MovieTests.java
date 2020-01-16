@@ -20,7 +20,8 @@ public class MovieTests extends BaseTest {
     @Test
     public void shouldRegisterANewMovie() {
         String title = "Jumanji - Next Leve";
+        String status = "Pré-Venda";
 
-        movie.add().create(title);
+        movie.add().create(title, status);
     }
 }
