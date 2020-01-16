@@ -1,6 +1,7 @@
 package tests;
 
 import commom.BaseTest;
+import models.MovieModel;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -22,14 +23,17 @@ public class MovieTests extends BaseTest {
 
     @Test
     public void shouldRegisterANewMovie() {
-        String title = "Jumanji - Next Leve";
-        String status = "Pré-Venda";
-        String year = "2020";
-        String releaseDate = "16/01/2020";
-        List<String> cast = Arrays.asList("The Rock", "Jack Black", "Kevin Hart", "Karen Gillan", "Danny DeVito");
-        String plot = "Tentatado a revisitar o mundo de Jumanji, Spencer decide consertar " +
-                " o bug no jogo do game que permite que sejam transportados ao local";
 
-        movie.add().create(title, status, year, releaseDate, cast, plot);
+        MovieModel movieData = new MovieModel(
+                "Jumanji - Next Leve",
+                "Pré-Venda",
+                "2020",
+                "16/01/2020",
+                Arrays.asList("The Rock", "Jack Black", "Kevin Hart", "Karen Gillan", "Danny DeVito"),
+                "Tentatado a revisitar o mundo de Jumanji, Spencer decide consertar o bug no jogo " +
+                        "do game que permite que sejam transportados ao local"
+
+        );
+        movie.add().create(movieData);
     }
 }
