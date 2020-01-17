@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
 import static models.MovieModelKt.coverPath;

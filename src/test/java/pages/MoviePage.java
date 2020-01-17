@@ -4,11 +4,11 @@ import com.codeborne.selenide.SelenideElement;
 import models.MovieModel;
 import org.openqa.selenium.Keys;
 
+import java.io.File;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class MoviePage {
 
@@ -24,8 +24,16 @@ public class MoviePage {
         $("input[name=release_date]").setValue(movieData.getReleaseDate());
         this.inputCast(movieData.getCast());
         $("textarea[name=overview]").setValue(movieData.getPlot());
+        this.upload(movieData.getCover());
 
         return this;
+    }
+
+    private void upload(String stringCover){
+        //String jsScript = "document.getElementById('upcover').classList.remove('el-upload__input);";
+        //executeJavaScript(jsScript);
+
+        $("#upcover").uploadFile(new File(stringCover));
     }
 
     private void inputCast(List<String> cast){
