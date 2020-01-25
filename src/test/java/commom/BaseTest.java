@@ -15,6 +15,7 @@ public class BaseTest {
     public void start() {
         Configuration.browser = "chrome";
         Configuration.baseUrl = "http://ninjaplus-web:5000";
+        Configuration.timeout = 30000;
 
         login = new LoginPage();
         side = new SideBar();
