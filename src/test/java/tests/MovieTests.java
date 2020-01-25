@@ -1,10 +1,12 @@
 package tests;
 
 import commom.BaseTest;
+import libs.Database;
 import models.MovieModel;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 
 import static com.codeborne.selenide.Condition.text;
@@ -36,6 +38,14 @@ public class MovieTests extends BaseTest {
                 coverPath() + "jumanji2.jpg"
 
         );
+
+        Database db = new Database();
+        try {
+            db.deleteMovie(movieData.getTitle());
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
 
         movie
                 .add()
